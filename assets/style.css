@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hero_image {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 0px;
+    background-image: url ("./cat\ image.jpeg");
+    background-position: center;
+}
+
+.header {
+    background: linear-gradient(0.25turn, rgb(192, 240, 192), rgb(1, 39, 1));
+    color:white;
+    font-size: 25px;
+    padding: 5px;
+    justify-content: center;
+    text-align: left;
+}
+
+.header h1 {
+    color: rgb(78, 92, 80);
+}
+
+.header h2 {
+    color: white;
+    text-shadow: black;
+}
+
+.header ul {
+    text-align: right;
+}
+
+.image {
+    justify-content: center;
+    width: 100vw;
+}
