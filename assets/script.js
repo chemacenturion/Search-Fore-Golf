@@ -1,3 +1,23 @@
+//function weather(selectCity) {
+    //Weather API
+    //var selectCity = 
+    var openWeathURL = "https://api.openweathermap.org/data/2.5/weather?q="
+    var myAPIKey = "&units=imperial&appid=b189ed07703c87b6aee0ad39e180260d"
+    //console.log(selectCity);
+    //Parse all three together in fullURL 
+    var fullURL = openWeathURL + "philadelphia" + myAPIKey;
+   
+$.ajax({
+    url: fullURL,
+    method: "get"
+})
+.then(function(response){
+    console.log(response);
+
+})
+
+
+
 var myHeaders = new Headers();
 myHeaders.append(
     "Authorization",
