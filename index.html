@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Search Fore Golf</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link rel=stylesheet href="assets/style.css"/>
 </head>
 <body>
     <header class="header" id="head">
-       <h1>Search FORE Golf</h1>
-       <br>
-       <h2>The search engine exclusively for fair-weather golfers!</h2>
-       <nav>
-           <ul>
-               <li><strong>About</strong></li>
-               <li><strong>Contact</strong></li>
-            </ul>
-        </nav>
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">Search For Golf</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><strong><a href="#about" >About Me</a></li></strong>
+                <li><strong><a href="#contact" >Contact Me</a></li></strong>
+              </ul>
+            </div>
+          </nav>     
     </header>
     
     <div class="hero_image">
@@ -39,8 +40,19 @@
         <container class="courses" id="search_results">
             
         </container>
+
+        <div class="about_section" id="about">
+            <h2>About</h2>
+        </div>
+
+        <div class="contact_section" id="contact">
+            <h2>Contact</h2>
+        </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/script.js"></script> 
+    <script src="assets/script.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
