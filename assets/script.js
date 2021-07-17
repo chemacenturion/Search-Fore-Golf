@@ -1,11 +1,11 @@
-//function weather(selectCity) {
+function weather(selectCity) {
     //Weather API
-    //var selectCity = 
     var openWeathURL = "https://api.openweathermap.org/data/2.5/weather?q="
     var myAPIKey = "&units=imperial&appid=b189ed07703c87b6aee0ad39e180260d"
     //console.log(selectCity);
+    var selectCity = "philadelphia"
     //Parse all three together in fullURL 
-    var fullURL = openWeathURL + "philadelphia" + myAPIKey;
+    var fullURL = openWeathURL + selectCity + myAPIKey;
    
 $.ajax({
     url: fullURL,
@@ -15,6 +15,7 @@ $.ajax({
     console.log(response);
 
 })
+}
 
 
 
@@ -36,3 +37,5 @@ fetch(
     .then((response) => response.json())
     .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
+
+    
