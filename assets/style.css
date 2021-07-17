@@ -13,15 +13,29 @@ a.brand-logo {
 }
 
 .hero_image {
-    height: 200px;
-    width: 100%;
-    margin-bottom: 0px;
-    background-image: url ("./cat\ image.jpeg");
+    height: 50rem;
+    background-image: url("./cat\ image.jpeg");
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
-.image {
-    justify-content: center;
-    width: 100vw;
+.hero_text {
+    display: inline-flex;
+    text-align: center;
+    position: absolute;
+    color:black;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+#search {
+    background-color: white;
+    border: black solid 1px;
+    border-radius: 3px;
+    text-align: center;
+    margin: 0px
 }
 
