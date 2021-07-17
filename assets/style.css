@@ -1,15 +1,30 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 .nav-wrapper {
-    background: linear-gradient(0.25turn, #9abb90f5, #114202f5);
+    background: linear-gradient(0.25turn, #fffffff5, #114202f5);
 }
 
-a.brand-logo {
-    font-size: 40px;
+nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+    height: 80px;
+    line-height: 64px;
+}
+
+#logo_two {
+    width: 80px;
+    height: auto;
+}
+
+#logo_two_sn {
+    width: 60px;
+    height: auto;
+}
+
+.sidenav {
+    background: linear-gradient(0.25turn, #fffffff5, #114202f5);
 }
 
 .hero_image {
@@ -63,4 +78,20 @@ a.brand-logo {
 .about_section,
 .contact_section {
     text-align: center;
+}
+
+@media only screen and (max-width: 993px) {
+    
+    .nav-wrapper {
+        background:#dbecc7f5;
+    }
+
+    #logo_one {
+        width: 200px;
+        height: auto;
+        justify-content: center;
+    }
+    #logo_two {
+        display:none
+    }
 }

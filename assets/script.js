@@ -95,3 +95,6 @@ function getGolf(cityName) {
         .catch((error) => console.log("error", error));
 }
 
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+    });

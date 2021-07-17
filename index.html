@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Search Fore Golf</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel=stylesheet href="assets/style.css"/>
+    <title>Search Fore Golf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel=stylesheet href="assets/style.css"/>
 </head>
 <body>
-    <header class="header" id="head">
-        <nav>
-            <div class="nav-wrapper">
-              <a href="#" class="brand-logo">Search Fore Golf</a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><strong><a href="#about" >About Me</a></li></strong>
-                <li><strong><a href="#contact" >Contact Me</a></li></strong>
-              </ul>
-            </div>
-          </nav>     
-    </header>
     <main>
+        <nav class="navbar" id="navigate">
+                <div class="nav-wrapper">
+                  <a href="#" class="brand-logo"><img id="logo_two" src="./assets/Logo2.PNG"><img id="logo_one" src="./assets/logo.png"></a>
+                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><img id="logo_two_sn" src="./assets/MenuLogo.PNG"></i></a>
+                  <ul class="right hide-on-med-and-down">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                  </ul>
+                </div>
+              </nav>
+            
+              <ul class="sidenav" id="mobile-demo">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
     <div class="row">
-      <div class="col s12 m12 l12">
-        <p>future nav bar</p>
-      </div>
-
       <div class="col s12 m12 l12">
         <div class="hero_image" id="hero">
           <div class ="hero_text">
@@ -51,11 +51,11 @@
           <h2>About</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti libero excepturi corporis vel harum laborum dolorem ullam, voluptatibus suscipit, eius consectetur modi ipsa beatae blanditiis!</p>
         </div>
-      </div>
 
-      <div class="contact_section" id="contact">
-        <h2>Contact</h2>
-        <span>Link</span><span>Link</span><span>Link</span><span>Link</span>
+        <div class="contact_section" id="contact">
+            <h2>Contact</h2>
+            <span>Link</span><span>Link</span><span>Link</span><span>Link</span>
+        </div>
       </div>
     </div>
     
