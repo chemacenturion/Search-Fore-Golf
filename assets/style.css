@@ -39,3 +39,12 @@ a.brand-logo {
     margin: 0px
 }
 
+.card-head {
+    font-size: 50px;
+    
+}
+
+.card-body {
+    font-size: x-large;
+    font-weight: bolder;
+}
