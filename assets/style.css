@@ -48,3 +48,19 @@ a.brand-logo {
     font-size: x-large;
     font-weight: bolder;
 }
+
+#favorite_button {
+    text-align: center;
+    position: absolute;
+    color:black;
+    top:55%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    flex-wrap: wrap;
+}
+
+.about_section,
+.contact_section {
+    text-align: center;
+}
