@@ -2,23 +2,25 @@ var cityName = $('#search').val();
 var myAPIKey = "&units=imperial&appid=b189ed07703c87b6aee0ad39e180260d"
 var date = new Date();
 
-$('#searchWord').keypress(function (event) {
-
+function handleSearchClick(event) {
+    event.preventDefault();
+    cityName = $('#search').val();
+    
+    $('#search').val('');
+    dailyWeather(cityName);
+    console.log(cityName);
+    
+}
+$('#search').keypress(function (event) {
+console.log('keypress');
     if (event.keyCode === 13) {
         event.preventDefault();
-        $('#searchBtn').click();
+        handleSearchClick(event);
     }
 });
 
 
-$('#searchBtn').on('click', function (e) {
-    e.preventDefault();
-    cityName = $('#search').val();
-
-    $('#search').val('');
-    dailyWeather(cityName);
-    console.log(cityName);
-});
+$('#searchBtn').on('click', handleSearchClick);
 
 function currentConditions(response) {
     var temp = (response.main.temp);
