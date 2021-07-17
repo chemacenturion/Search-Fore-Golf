@@ -17,6 +17,7 @@ $('#searchBtn').on('click', function (e) {
 
     $('#search').val('');
     dailyWeather(cityName);
+    getGolf(cityName);
     console.log(cityName);
 });
 
@@ -64,7 +65,8 @@ function dailyWeather(cityName) {
         })
 }
 
-function getGolf() {
+function getGolf(cityName) {
+    //console.log(cityName)
     var myHeaders = new Headers();
     myHeaders.append(
         "Authorization",
@@ -77,13 +79,17 @@ function getGolf() {
         redirect: "follow",
     };
     fetch(
-        "https://cors.bridged.cc/https://api.yelp.com/v3/businesses/search?term=golf&location=philadelphia",
+        "https://cors.bridged.cc/https://api.yelp.com/v3/businesses/search?term=golf&location=" + cityName,
         requestOptions
     )
         .then((response) => response.json())
-        .then(function (result) { console.log(result) })
+        .then(function (result) {
+            console.log(result)
+            var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
+            var lineBody = $("<div>").addClass("line-body")
+            var lineTitle = $("<div>").addClass("line-title").text("Golf Courses In: " + cityName)
+            $("#results").append(line.append(lineBody.append(lineTitle)))
+        })
         .catch((error) => console.log("error", error));
-
-
 }
-getGolf();
+
