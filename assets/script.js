@@ -17,7 +17,7 @@ $.ajax({
 })
 
 
-
+function getGolf (){
 var myHeaders = new Headers();
 myHeaders.append(
     "Authorization",
@@ -34,5 +34,9 @@ fetch(
     requestOptions
 )
     .then((response) => response.json())
-    .then((result) => console.log(result))
+    .then(function (result) {console.log(result)})
     .catch((error) => console.log("error", error));
+
+
+}
+getGolf();
