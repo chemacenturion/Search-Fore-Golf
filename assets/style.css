@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+body {
+    background-image: url(./golfbackground.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .nav-wrapper {
     background: linear-gradient(0.25turn, #fffffff5, #114202f5);
 }
@@ -14,7 +20,7 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 }
 
 #logo_two {
-    width: 80px;
+    width: 80
     height: auto;
 }
 
@@ -72,7 +78,6 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     left:50%;
     transform: translate(-50%,-50%);
     width: 200px;
-    flex-wrap: wrap;
 }
 
 .about_section,
@@ -95,3 +100,4 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
         display:none
     }
 }
+
