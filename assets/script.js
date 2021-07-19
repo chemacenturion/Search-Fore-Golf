@@ -86,15 +86,20 @@ function getGolf(cityName) {
     )
         .then((response) => response.json())
         .then(function (result) {
+            var cityBox = $("<div>").addClass("city-box m6").attr("style", "border: 1px solid black")
+            var cityBody = $("<div>").addClass("city-body")
+            var cityTitle = $("<div>").addClass("city-title").text("Golf Courses In: " + cityName)
+            $("#results").append(cityBox.append(cityBody.append(cityTitle)))
             console.log(result)
             for (let i = 0; i < result.businesses.length; i++) {
                 var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
                 var lineBody = $("<div>").addClass("line-body")
-                var lineTitle = $("<div>").addClass("line-title").text("Golf Courses In: " + cityName)
-                var cityCourses = $("<div>").addClass("line-title").text(result.businesses[i].name)
-                var courseAddress = $("<div>").addClass("line-title").text("Address: " + result.businesses[i].location.display_address)
-                $("#results").append(line.append(lineBody.append(lineTitle, cityCourses, courseAddress)))
+                var cityCourses = $("<div>").addClass("city-courses").text(result.businesses[i].name)
+                var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
+                var favBtn = $("<button>").addClass("fav-btn").text("Favorite? ♡")
+                $("#results").append(line.append(lineBody.append(cityCourses, courseAddress))).append(favBtn)
             }
+
         })
         .catch((error) => console.log("error", error));
 }
