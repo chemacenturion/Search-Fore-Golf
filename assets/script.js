@@ -5,15 +5,15 @@ var date = new Date();
 function handleSearchClick(event) {
     event.preventDefault();
     cityName = $('#search').val();
-    
+
     $('#search').val('');
     dailyWeather(cityName);
     getGolf(cityName);
     console.log(cityName);
-    
+
 }
 $('#search').keypress(function (event) {
-console.log('keypress');
+    console.log('keypress');
     if (event.keyCode === 13) {
         event.preventDefault();
         handleSearchClick(event);
@@ -87,14 +87,18 @@ function getGolf(cityName) {
         .then((response) => response.json())
         .then(function (result) {
             console.log(result)
-            var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
-            var lineBody = $("<div>").addClass("line-body")
-            var lineTitle = $("<div>").addClass("line-title").text("Golf Courses In: " + cityName)
-            $("#results").append(line.append(lineBody.append(lineTitle)))
+            for (let i = 0; i < result.businesses.length; i++) {
+                var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
+                var lineBody = $("<div>").addClass("line-body")
+                var lineTitle = $("<div>").addClass("line-title").text("Golf Courses In: " + cityName)
+                var cityCourses = $("<div>").addClass("line-title").text(result.businesses[i].name)
+                var courseAddress = $("<div>").addClass("line-title").text("Address: " + result.businesses[i].location.display_address)
+                $("#results").append(line.append(lineBody.append(lineTitle, cityCourses, courseAddress)))
+            }
         })
         .catch((error) => console.log("error", error));
 }
 
-  $(document).ready(function(){
+$(document).ready(function () {
     $('.sidenav').sidenav();
-    });
+});
