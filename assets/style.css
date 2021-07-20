@@ -29,6 +29,11 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     height: auto;
 }
 
+* .card {
+    color: white;
+    background-size: cover;
+}
+
 .sidenav {
     background: linear-gradient(0.25turn, #fffffff5, #114202f5);
 }
