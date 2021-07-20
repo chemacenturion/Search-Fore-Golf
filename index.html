@@ -8,62 +8,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel=stylesheet href="assets/style.css"/>
 </head>
-<body>
-    <main>
-        <nav class="navbar" id="navigate">
-                <div class="nav-wrapper">
-                  <a href="#" class="brand-logo"><img id="logo_two" src="./assets/Logo2.PNG"><img id="logo_one" src="./assets/logo.png"></a>
-                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><img id="logo_two_sn" src="./assets/MenuLogo.PNG"></i></a>
-                  <ul class="right hide-on-med-and-down">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                  </ul>
-                </div>
-              </nav>
-            
-              <ul class="sidenav" id="mobile-demo">
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="hero_image" id="hero">
-          <div class ="hero_text">
-              <input type="text" class="location_search" id="search" placeholder="Enter City Name">
-              <button type="submit" class="search_button" id="searchBtn"><value>Search 🏌️</value></button>
-          </div>
-          <div>
-              <button class="favoritebtn" id="favorite_button"><value>Saved Courses</value></button>
-          </div>
-      </div>
-
+  <body>
+      <main>
+          <nav class="navbar" id="navigate">
+                  <div class="nav-wrapper">
+                    <a href="#" class="brand-logo"><img id="logo_two" src="./assets/Images/Logo2.PNG"><img id="logo_one" src="./assets/Images/logo.png"></a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><img id="logo_two_sn" src="./assets/Images/MenuLogo.PNG"></i></a>
+                    <ul class="right hide-on-med-and-down">
+                      <li><a href="#about">About</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              
+                <ul class="sidenav" id="mobile-demo">
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="hero_image" id="hero">
+            <div class ="hero_text">
+                <input type="text" class="location_search" id="search" placeholder="Enter City Name">
+                <button type="submit" class="search_button" id="searchBtn"><value>Search 🏌️</value></button>
+            </div>
+            <div>
+                <button class="favoritebtn" id="favorite_button"><value>Saved Courses</value></button>
+            </div>
+        </div>
       <div class="col s12 m3 l3">
         <div id="currentCity">Weather Goes Here:</div>
       </div>
       <div class="col s12 m6 l6">
         <div id="results"></div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="about_section" id="about">
-          <h2>About</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti libero excepturi corporis vel harum laborum dolorem ullam, voluptatibus suscipit, eius consectetur modi ipsa beatae blanditiis!</p>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <div class="about_section" id="about">
+            <h2>About</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti libero excepturi corporis vel harum laborum dolorem ullam, voluptatibus suscipit, eius consectetur modi ipsa beatae blanditiis!</p>
+          </div>
+      </main>
+
+      <footer class="page-footer">
+        <div class="foot-container">
+          <h2>Contact</h2>
+          <div class="row">
+            <div class="col l4 offset-l2 s12">
+              <div id="contact-avatars">
+                <ul id="horizontal-list">
+                  <li><a href="https://github.com/catupperman" target="_blank"><img src="./assets/Images/catGit.jpg" alt="Avatar" class="avatar"></a></li>
+                  <li><a href="https://github.com/matthewvandevort" target="_blank"><img src="./assets/Images/matthewGit.jpg" alt="Avatar" class="avatar"></a></li>
+                  <li><a href="https://github.com/chemacenturion" target="_blank"><img src="./assets/Images/joseGit.jpg" alt="Avatar" class="avatar"></a></li>
+                </ul>
+              </div>
+              <div id="lessons">
+                <li><a href="http://groundupgolf.lessoncaddy.com/people/27584-jose-maria-centurion" target="_blank"><img src="./assets/Images/TheGolfStudioLogo.png" alt="Avatar" class="avatar"></a></li>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="contact_section" id="contact">
-            <h2>Contact</h2>
-            <span>Link</span><span>Link</span><span>Link</span><span>Link</span>
+        <div class="footer-copyright">
+          <div class="footer-copyright-container">
+            <img id="logo_one" src="./assets/Images/logo.png">
+            <br>
+            © 2021 Search Fore Golf
+          </div>
         </div>
-      </div>
-    </div>
-    
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/script.js"></script>
+      </footer>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="assets/script.js"></script>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>
