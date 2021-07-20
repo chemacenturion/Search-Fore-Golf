@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url(./golfbackground.jpg);
+    background-image: url("./Images/golfbackground.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,13 +29,18 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     height: auto;
 }
 
+* .card {
+    color: white;
+    background-size: cover;
+}
+
 .sidenav {
     background: linear-gradient(0.25turn, #fffffff5, #114202f5);
 }
 
 .hero_image {
     height: 50rem;
-    background-image: url("./cat\ image.jpeg");
+    background-image: url("./Images/cat\ image.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -85,9 +90,60 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     text-align: center;
 }
 
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+#lessons {
+    vertical-align: middle;
+    width: auto;
+    height: 100px;
+    justify-content: center;
+    list-style: none;
+}
+
+.page-footer {
+    background: none;
+    text-align: center;
+    color: black;
+}
+
+ul#horizontal-list {
+	list-style: none;
+	padding-top: 20px;
+}
+
+ul#horizontal-list li {
+	display: inline-block;
+    text-align: center;
+}
+
+.footer-copyright-container {
+    color: rgb(71, 70, 70);
+    text-align: left;
+}
+
+@media only screen and (min-width: 993px) {
+
+        .row .col.offset-l2 {
+        margin: 0;
+    }
+}
+
 @media only screen and (max-width: 993px) {
     
     .nav-wrapper {
+        padding-top: 15px;
         background:#dbecc7f5;
     }
 
