@@ -11,7 +11,7 @@ body {
     background-size: cover;
 }
 .nav-wrapper {
-    background: linear-gradient(0.25turn, #fffffff5, #114202f5);
+    background: linear-gradient(0.25turn, #fffffff5, darkolivegreen);
 }
 
 nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
@@ -35,7 +35,8 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 }
 
 .sidenav {
-    background: linear-gradient(0.25turn, #fffffff5, #114202f5);
+    background: linear-gradient(0.25turn, #fffffff5, rgb(165, 170, 157));
+    padding: 10px;
 }
 
 .hero_image {
@@ -97,21 +98,6 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     border-radius: 50%;
 }
 
-.avatar {
-    vertical-align: middle;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-#lessons {
-    vertical-align: middle;
-    width: auto;
-    height: 100px;
-    justify-content: center;
-    list-style: none;
-}
-
 .page-footer {
     background: none;
     text-align: center;
@@ -133,6 +119,26 @@ ul#horizontal-list li {
     text-align: left;
 }
 
+/* Adding CSS/attempting to add CSS to the golfCourse attributes */
+
+.city-title{
+    font-size: xx-large;
+    text-align: center;
+    color: darkgreen;
+}
+
+.city-courses{
+    font-size: medium;
+    text-align: center;
+    color: rgb(58, 126, 58);
+}
+
+.course-address{
+    font-size: small;
+    text-align: center;
+    color: darkolivegreen;
+}
+
 @media only screen and (min-width: 993px) {
 
         .row .col.offset-l2 {
@@ -152,27 +158,8 @@ ul#horizontal-list li {
         height: auto;
         justify-content: center;
     }
+
     #logo_two {
-        display:none
+        display:none;
     }
-}
-
-/* Adding CSS/attempting to add CSS to the golfCourse attributes */
-
-.city-title{
-    font-size: xx-large;
-    text-align: center;
-    color: darkgreen;
-}
-
-.city-courses{
-    font-size: medium;
-    text-align: center;
-    color: rgb(58, 126, 58);
-}
-
-.course-address{
-    font-size: small;
-    text-align: center;
-    color: darkolivegreen;
 }
