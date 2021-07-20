@@ -86,6 +86,7 @@ function getGolf(cityName) {
     )
         .then((response) => response.json())
         .then(function (result) {
+
             var cityBox = $("<div>").addClass("city-box m6").attr("style", "border: 1px solid black")
             var cityBody = $("<div>").addClass("city-body")
             var cityTitle = $("<div>").addClass("city-title").text("Golf Courses In: " + cityName)
@@ -96,12 +97,29 @@ function getGolf(cityName) {
                 var lineBody = $("<div>").addClass("line-body")
                 var cityCourses = $("<div>").addClass("city-courses").text(result.businesses[i].name)
                 var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
-                var favBtn = $("<button>").addClass("fav-btn").text("Favorite? ♡")
-                $("#results").append(line.append(lineBody.append(cityCourses, courseAddress))).append(favBtn)
+                var saveBtn = $("<button>").addClass("save-btn").text("Save? ♡")
+                $("#results").append(line.append(lineBody.append(cityCourses, courseAddress)).append(saveBtn))
+                
             }
-
+            //eventlistener for saved courses from user selection 
         })
         .catch((error) => console.log("error", error));
+}
+
+function userSavedClick (event){
+    
+
+}
+
+function saveStorage(saveCourse){
+    var savedArr=[];
+    if(!localStorage.getItem(saveCourse)){
+        console.log("none");
+        savedArr.push(saveCourse);
+        localStorage.setItem(saveCourse, JSON.stringify(savedArr))
+
+    }
+
 }
 
 $(document).ready(function () {
