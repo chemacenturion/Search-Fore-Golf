@@ -152,3 +152,22 @@ ul#horizontal-list li {
     }
 }
 
+/* Adding CSS/attempting to add CSS to the golfCourse attributes */
+
+.city-title{
+    font-size: xx-large;
+    text-align: center;
+    color: darkgreen;
+}
+
+.city-courses{
+    font-size: medium;
+    text-align: center;
+    color: rgb(58, 126, 58);
+}
+
+.course-address{
+    font-size: small;
+    text-align: center;
+    color: darkolivegreen;
+}
