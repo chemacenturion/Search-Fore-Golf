@@ -40,15 +40,15 @@ function currentConditions(response) {
     var humidity = $('<p>').addClass('card-body current-humidity').text('Humidity: ' + response.main.humidity + '%');
     var windMph = $('<p>').addClass('card-body current-wind').text('Wind Speed: ' + response.wind.speed + ' MPH');
     var weatherImage = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.weather[0].icon + '@4x.png');
-    
+
     // Appending the data to the page.
     city.append(cityDate, weatherImage);
     cardContent.append(city, temperature, humidity, windMph,);
     card.append(cardContent);
     $('#currentCity').append(card);
-    
+
     // weatherBackground = 'Fog';
-    
+
     switch (weatherBackground) {
         case "Snow":
             $('.card').css('background-image', "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')");
@@ -63,7 +63,7 @@ function currentConditions(response) {
             $('.card').css('background-image', "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')");
             break;
         case "Clear":
-            $('.card').css({'color':'black','background-image':"url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')"});
+            $('.card').css({ 'color': 'black', 'background-image': "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')" });
             break;
         case "Thunderstorm":
             $('.card').css('background-image', "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')");
@@ -87,29 +87,29 @@ function currentConditions(response) {
             $('.card').css('background-image', "url('https://media0.giphy.com/media/MXvDhlmD0eB5qNvvjZ/giphy.gif?cid=790b76114c9a15098432b7e68e495248824cab011a46459f&rid=giphy.gif&ct=g')");
             break;
         default:
-            $('.card').css({'color':'black','background-image':"url('https://media0.giphy.com/media/MXvDhlmD0eB5qNvvjZ/giphy.gif?cid=790b76114c9a15098432b7e68e495248824cab011a46459f&rid=giphy.gif&ct=g')"});
+            $('.card').css({ 'color': 'black', 'background-image': "url('https://media0.giphy.com/media/MXvDhlmD0eB5qNvvjZ/giphy.gif?cid=790b76114c9a15098432b7e68e495248824cab011a46459f&rid=giphy.gif&ct=g')" });
             break;
     }
 }
 
 function dailyWeather(cityName) {
     var callApi = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + myAPIKey;
-    
+
     $.ajax({
         url: callApi,
         method: 'GET'
     })
-    .then(function (response) {
-        
-        console.log(response);
-        console.log(response.name);
-        console.log(response.weather[0].icon);
-        console.log(response.main.humidity);
-        console.log(response.wind.speed);
-        // let lat = response.coord.lat;
-        // let lon = response.coord.lon
-        currentConditions(response);
-    })
+        .then(function (response) {
+
+            console.log(response);
+            console.log(response.name);
+            console.log(response.weather[0].icon);
+            console.log(response.main.humidity);
+            console.log(response.wind.speed);
+            // let lat = response.coord.lat;
+            // let lon = response.coord.lon
+            currentConditions(response);
+        })
 }
 
 function getGolf(cityName) {
@@ -145,21 +145,21 @@ function getGolf(cityName) {
                 var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
                 var saveBtn = $("<button>").addClass("save-btn").text("Save? ♡")
                 $("#results").append(line.append(lineBody.append(cityCourses, courseAddress)).append(saveBtn))
-                
+
             }
             //eventlistener for saved courses from user selection 
         })
         .catch((error) => console.log("error", error));
 }
 
-function userSavedClick (event){
-    
+function userSavedClick(event) {
+
 
 }
 
-function saveStorage(saveCourse){
-    var savedArr=[];
-    if(!localStorage.getItem(saveCourse)){
+function saveStorage(saveCourse) {
+    var savedArr = [];
+    if (!localStorage.getItem(saveCourse)) {
         console.log("none");
         savedArr.push(saveCourse);
         localStorage.setItem(saveCourse, JSON.stringify(savedArr))
