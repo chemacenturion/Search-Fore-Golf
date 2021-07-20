@@ -2,6 +2,7 @@ var cityName = $('#search').val();
 var myAPIKey = "&units=imperial&appid=b189ed07703c87b6aee0ad39e180260d"
 var date = new Date();
 
+
 function handleSearchClick(event) {
     event.preventDefault();
     cityName = $('#search').val();
@@ -12,6 +13,8 @@ function handleSearchClick(event) {
     console.log(cityName);
 
 }
+
+
 $('#search').keypress(function (event) {
     console.log('keypress');
     if (event.keyCode === 13) {
@@ -36,6 +39,7 @@ function currentConditions(response) {
     var cardContent = $('<div>').addClass('card-content');
     var city = $('<h4>').addClass('card-head').text(response.name);
     var cityDate = $('<h4>').addClass('card-head').text(date.toLocaleString('en-US'));
+    var conditions = $('<p>').addClass('card-body current-description').text('Current Condition: ' + response.weather[0].description);
     var temperature = $('<p>').addClass('card-body current-temp').text('Temperature: ' + temp + '℉');
     var humidity = $('<p>').addClass('card-body current-humidity').text('Humidity: ' + response.main.humidity + '%');
     var windMph = $('<p>').addClass('card-body current-wind').text('Wind Speed: ' + response.wind.speed + ' MPH');
@@ -43,7 +47,7 @@ function currentConditions(response) {
     
     // Appending the data to the page.
     city.append(cityDate, weatherImage);
-    cardContent.append(city, temperature, humidity, windMph,);
+    cardContent.append(city, conditions, temperature, humidity, windMph,);
     card.append(cardContent);
     $('#currentCity').append(card);
     
@@ -77,7 +81,7 @@ function currentConditions(response) {
         case "Smoke":
             $('.card').css('background-image', "url('https://media1.giphy.com/media/3oz8xujaR1rpMXRd8k/giphy.gif?cid=790b761142618ad0a1a60859c8f627bbbfebdb8c73d10057&rid=giphy.gif&ct=g')");
             break;
-        case "Hazy":
+        case "Haze":
             $('.card').css('background-image', "url('https://media2.giphy.com/media/dgeIH5RPynA6Q/giphy.gif?cid=ecf05e4743r72icxao4vsbik1kd5klkjdqjy3yayd2eh7cni&rid=giphy.gif&ct=g')");
             break;
         case "Squall":
@@ -106,8 +110,7 @@ function dailyWeather(cityName) {
         console.log(response.weather[0].icon);
         console.log(response.main.humidity);
         console.log(response.wind.speed);
-        // let lat = response.coord.lat;
-        // let lon = response.coord.lon
+
         currentConditions(response);
     })
 }
