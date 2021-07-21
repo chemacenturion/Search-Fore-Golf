@@ -149,14 +149,14 @@ function getGolf(cityName) {
                 var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
                 var saveBtn = $("<button>").addClass("save-btn").val(result.businesses[i].id).text("Save? ♡")
                 //make a resultsbtn, each result  variabe that attatches to the '#results' with an .on("click", that goes to the corresponding url in the API)
-                
+
 
                 saveBtn.on("click", saveStorage);
 
                 $("#results").append(line.append(lineBody.append(cityCourses, courseAddress)).append(saveBtn))
 
             }
-            
+
         })
         .catch((error) => console.log("error", error));
 }
@@ -195,16 +195,20 @@ $("#favorite_button").on("click", function () {
                 $("#saved-container").append(resultCard)
                 console.log(result)
             })
-
+            .catch((error) => console.log("error", error));
     }
-    //closeOnClick	Boolean	true	If true, close dropdown on item click
-    
-        //closeOnClick("#saved-container");
-    
-})
+});
 
+//closeOnClick	Boolean	true	If true, close dropdown on item click
+
+//closeOnClick("#saved-container");
 
 
 $(document).ready(function () {
     $('.sidenav').sidenav();
 });
+
+$(document).ready(function () {
+    $('.carousel').carousel();
+});
+
