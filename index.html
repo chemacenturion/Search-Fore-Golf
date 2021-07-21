@@ -24,6 +24,8 @@
         <aside>
           <ul class="sidenav" id="mobile-demo">
             <li><a href="#about">About</a></li>
+            <br>
+            <br>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </aside>
@@ -34,13 +36,26 @@
               <div class ="hero_text">
                 <input type="text" class="location_search" id="search" placeholder="Enter City Name">
                 <button type="submit" class="search_button" id="searchBtn"><value>Search 🏌️</value></button>
+                <button data-target="modal1" class="btn modal-trigger"><value>♥</value></button>
               </div>
-              <div>
-                  <!--<button class="favoritebtn" id="favorite_button"><value>Saved Courses</value></button>-->
-                  <a class='dropdown-trigger btn' href='#' data-target='dropdown1' class="favoritebtn" id="favorite_button">Saved Courses!
+                <!-- Modal Structure -->
+                <!-- Modal Trigger -->
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h4>Favorite Courses</h4>
+                  <div>
+                    <!-- <button class="favoritebtn" id="favorite_button"><value>Saved Courses</value></button> -->
+                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1' class="favoritebtn" id="favorite_button">Saved Courses!
+  
+                    <div id="saved-container">
 
-                  <div id="saved-container"></div>
-                </a>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+              </div>
               </div>
             </div>
           </div>
@@ -64,19 +79,24 @@
             <div class="carousel">
               <a class="carousel-item" href="#one!"><img src="./assets/Images/catgolf1.jpeg"></a>
               <a class="carousel-item" href="#two!"><img src="./assets/Images/matt1.jpg"></a>
-              <a class="carousel-item" href="#three!"><img src="./assets/Images/cuban.PNG"></a>
+              <a class="carousel-item" href="#three!"><img src="./assets/Images/cuban.jpg"></a>
               <a class="carousel-item" href="#four!"><img src="./assets/Images/catgolf2.jpeg"></a>
               <a class="carousel-item" href="#five!"><img src="./assets/Images/matt2.JPG"></a>
-              <a class="carousel-item" href="#six!"><img src="./assets/Images/lesson.PNG"></a>
+              <a class="carousel-item" href="#six!"><img src="./assets/Images/dean.jpg"></a>
             </div>
           </div>
         </div>
       </main>
 
       <footer class="page-footer">
-        <div class="foot-container" id="contact">
-          <h2>Contact</h2>
-          <div class="row">
+        <div class="footer-copyright">
+          <div class="footer-copyright-container">
+            <img id="logo_footer" src="./assets/Images/logo.png">
+            <br>
+            © 2021 Search FORE Golf
+          </div>
+          <div class="foot-container" id="contact">
+            <div class="row">
               <div id="contact-avatars">
                 <ul id="horizontal-list">
                   <li><a href="https://github.com/catupperman" target="_blank"><img src="./assets/Images/catGit.jpg" alt="Avatar" class="avatar"></a></li>
@@ -85,15 +105,7 @@
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="footer-copyright">
-          <div class="footer-copyright-container">
-            <img id="logo_one" src="./assets/Images/logo.png">
-            <br>
-            © 2021 Search FORE Golf
-          </div>
+          </div> 
         </div>
       </footer>
       
