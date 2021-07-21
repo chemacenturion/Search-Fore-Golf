@@ -39,7 +39,7 @@ function currentConditions(response) {
     var card = $('<div>').addClass('card');
     var cardContent = $('<div>').addClass('card-content');
     var city = $('<h4>').addClass('card-head').text(response.name);
-    var cityDate = $('<h4>').addClass('card-head').text(date.toLocaleString('en-US'));
+    var cityDate = $('<h4>').addClass('card-head').text(date.toDateString('en-US'));
     var conditions = $('<p>').addClass('card-body current-description').text('Current Condition: ' + response.weather[0].description);
     var temperature = $('<p>').addClass('card-body current-temp').text('Temperature: ' + temp + '℉');
     var humidity = $('<p>').addClass('card-body current-humidity').text('Humidity: ' + response.main.humidity + '%');
