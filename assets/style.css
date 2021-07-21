@@ -163,3 +163,10 @@ ul#horizontal-list li {
         display:none;
     }
 }
+
+#saved-container{
+    background-color: white;
+    z-index: 1;
+    overflow: scroll;
+    height: 200px;
+}
