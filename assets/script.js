@@ -1,6 +1,7 @@
 var cityName = $('#search').val();
 var myAPIKey = "&units=imperial&appid=b189ed07703c87b6aee0ad39e180260d"
 var date = new Date();
+var savedArr = JSON.parse(localStorage.getItem("savedcourses")) || [];
 
 
 function handleSearchClick(event) {
@@ -44,15 +45,15 @@ function currentConditions(response) {
     var humidity = $('<p>').addClass('card-body current-humidity').text('Humidity: ' + response.main.humidity + '%');
     var windMph = $('<p>').addClass('card-body current-wind').text('Wind Speed: ' + response.wind.speed + ' MPH');
     var weatherImage = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.weather[0].icon + '@4x.png');
-    
+
     // Appending the data to the page.
     city.append(cityDate, weatherImage);
     cardContent.append(city, conditions, temperature, humidity, windMph,);
     card.append(cardContent);
     $('#currentCity').append(card);
-    
+
     // weatherBackground = 'Fog';
-    
+
     switch (weatherBackground) {
         case "Snow":
             $('.card').css('background-image', "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')");
@@ -67,7 +68,7 @@ function currentConditions(response) {
             $('.card').css('background-image', "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')");
             break;
         case "Clear":
-            $('.card').css({'color':'black','background-image':"url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')"});
+            $('.card').css({ 'color': 'black', 'background-image': "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')" });
             break;
         case "Thunderstorm":
             $('.card').css('background-image', "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')");
@@ -91,28 +92,28 @@ function currentConditions(response) {
             $('.card').css('background-image', "url('https://media0.giphy.com/media/MXvDhlmD0eB5qNvvjZ/giphy.gif?cid=790b76114c9a15098432b7e68e495248824cab011a46459f&rid=giphy.gif&ct=g')");
             break;
         default:
-            $('.card').css({'color':'black','background-image':"url('https://media0.giphy.com/media/MXvDhlmD0eB5qNvvjZ/giphy.gif?cid=790b76114c9a15098432b7e68e495248824cab011a46459f&rid=giphy.gif&ct=g')"});
+            $('.card').css({ 'color': 'black', 'background-image': "url('https://media0.giphy.com/media/MXvDhlmD0eB5qNvvjZ/giphy.gif?cid=790b76114c9a15098432b7e68e495248824cab011a46459f&rid=giphy.gif&ct=g')" });
             break;
     }
 }
 
 function dailyWeather(cityName) {
     var callApi = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + myAPIKey;
-    
+
     $.ajax({
         url: callApi,
         method: 'GET'
     })
-    .then(function (response) {
-        
-        console.log(response);
-        console.log(response.name);
-        console.log(response.weather[0].icon);
-        console.log(response.main.humidity);
-        console.log(response.wind.speed);
+        .then(function (response) {
 
-        currentConditions(response);
-    })
+            console.log(response);
+            console.log(response.name);
+            console.log(response.weather[0].icon);
+            console.log(response.main.humidity);
+            console.log(response.wind.speed);
+
+            currentConditions(response);
+        })
 }
 
 function getGolf(cityName) {
@@ -122,6 +123,60 @@ function getGolf(cityName) {
     myHeaders.append(
         "Authorization",
         "Bearer MvOlms7t9vwYoodOjpjZqUY_8EGGlNXYii09N2dp2qiJ3y1ozqzZpinFpsWkHEvi9kWN34hOW-C0scwxVmBcJx9DZZQ94j5DbpLXKtCs32mGHyss3DAmlPkiw8_pYHYx"
+    );
+    myHeaders.append("origin", "https://app.cors.bridged.cc");
+    var requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow",
+    };
+    fetch(
+        "https://cors.bridged.cc/https://api.yelp.com/v3/businesses/search?term=golf&location=" + cityName,
+        requestOptions
+    )
+        .then((response) => response.json())
+        .then(function (result) {
+
+            var cityBox = $("<div>").addClass("city-box m6").attr("style", "border: 1px solid black")
+            var cityBody = $("<div>").addClass("city-body")
+            var cityTitle = $("<div>").addClass("city-title").text("Golf Courses In: " + cityName)
+            $("#results").append(cityBox.append(cityBody.append(cityTitle)))
+            console.log(result)
+            for (let i = 0; i < result.businesses.length; i++) {
+                var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
+                var lineBody = $("<div>").addClass("line-body")
+                var cityCourses = $("<a>").addClass("city-courses").text(result.businesses[i].name).attr("href", result.businesses[i].url)
+                var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
+                var saveBtn = $("<button>").addClass("save-btn").val(result.businesses[i].id).text("Save? ♡")
+                //make a resultsbtn, each result  variabe that attatches to the '#results' with an .on("click", that goes to the corresponding url in the API)
+
+
+                saveBtn.on("click", saveStorage);
+
+                $("#results").append(line.append(lineBody.append(cityCourses, courseAddress)).append(saveBtn))
+
+            }
+
+        })
+        .catch((error) => console.log("error", error));
+}
+
+function saveStorage() {
+    console.log(this.value)
+    if (savedArr.indexOf(this.value) === -1) {
+        savedArr.push(this.value)
+    }
+    console.log(savedArr)
+    localStorage.setItem("savedcourses", JSON.stringify(savedArr))
+}
+
+$("#favorite_button").on("click", function () {
+    for (var i = 0; i < savedArr.length; i++) {
+        console.log(savedArr[i])
+        var myHeaders = new Headers();
+        myHeaders.append(
+            "Authorization",
+            "Bearer MvOlms7t9vwYoodOjpjZqUY_8EGGlNXYii09N2dp2qiJ3y1ozqzZpinFpsWkHEvi9kWN34hOW-C0scwxVmBcJx9DZZQ94j5DbpLXKtCs32mGHyss3DAmlPkiw8_pYHYx"
         );
         myHeaders.append("origin", "https://app.cors.bridged.cc");
         var requestOptions = {
@@ -130,33 +185,30 @@ function getGolf(cityName) {
             redirect: "follow",
         };
         fetch(
-            "https://cors.bridged.cc/https://api.yelp.com/v3/businesses/search?term=golf&location=" + cityName,
+            "https://cors.bridged.cc/https://api.yelp.com/v3/businesses/" + savedArr[i],
             requestOptions
-            )
+        )
             .then((response) => response.json())
             .then(function (result) {
-                var cityBox = $("<div>").addClass("city-box m6").attr("style", "border: 1px solid black")
-                var cityBody = $("<div>").addClass("city-body")
-                var cityTitle = $("<div>").addClass("city-title").text("Golf Courses In: " + cityName)
-                $("#results").append(cityBox.append(cityBody.append(cityTitle)))
+
+                var resultCard = $("<div>").addClass("result-card line m6").attr("style", "border: 1px solid black").text(result.name)
+                $("#saved-container").append(resultCard)
                 console.log(result)
-                for (let i = 0; i < result.businesses.length; i++) {
-                    var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
-                    var lineBody = $("<div>").addClass("line-body")
-                    var cityCourses = $("<div>").addClass("city-courses").text(result.businesses[i].name)
-                    var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
-                    var favBtn = $("<button>").addClass("fav-btn").text("Favorite? ♡")
-                    $("#results").append(line.append(lineBody.append(cityCourses, courseAddress))).append(favBtn)
-                }
-                
             })
             .catch((error) => console.log("error", error));
-        }
-        
+    }
+});
+
+//closeOnClick	Boolean	true	If true, close dropdown on item click
+
+//closeOnClick("#saved-container");
+
+
 $(document).ready(function () {
     $('.sidenav').sidenav();
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.carousel').carousel();
 });
+

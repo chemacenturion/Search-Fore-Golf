@@ -33,9 +33,10 @@ Description of project: This project tasked us with making a web application fro
 # Link to GitHub Page
 
 [Search Fore Golf](https://chemacenturion.github.io/Search-Fore-Golf/)
+
 # Screenshot
 
-[Search Fore Golf](assets/Images/Search Fore Golf.gif)
+![Search Fore Golf](assets/Images/SearchForeGolf.gif)
 
 # Resources Used
 

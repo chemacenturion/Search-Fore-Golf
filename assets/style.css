@@ -41,7 +41,7 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 
 .hero_image {
     height: 50rem;
-    background-image: url("./Images/cat\ image.jpeg");
+    background-image: url("https://cdn.pixabay.com/photo/2017/09/06/20/41/labor-day-2722962_960_720.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -180,4 +180,11 @@ ul#horizontal-list li {
     #logo_two {
         display:none;
     }
+}
+
+#saved-container{
+    background-color: white;
+    z-index: 1;
+    overflow: scroll;
+    height: 200px;
 }
