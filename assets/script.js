@@ -52,7 +52,7 @@ function currentConditions(response) {
     card.append(cardContent);
     $('#currentCity').append(card);
 
-    // weatherBackground = 'Fog';
+    // weatherBackground = 'Haze';
 
     switch (weatherBackground) {
         case "Snow":
@@ -83,7 +83,7 @@ function currentConditions(response) {
             $('.card').css('background-image', "url('https://media1.giphy.com/media/3oz8xujaR1rpMXRd8k/giphy.gif?cid=790b761142618ad0a1a60859c8f627bbbfebdb8c73d10057&rid=giphy.gif&ct=g')");
             break;
         case "Haze":
-            $('.card').css('background-image', "url('https://media2.giphy.com/media/dgeIH5RPynA6Q/giphy.gif?cid=ecf05e4743r72icxao4vsbik1kd5klkjdqjy3yayd2eh7cni&rid=giphy.gif&ct=g')");
+            $('.card').css('background-image', "url('https://th.bing.com/th/id/R.d3715f254c73a463014eeb6d2ab82003?rik=71HY9gXEaYtYPA&riu=http%3a%2f%2fnetanimations.net%2fchildren-of-men-cinemagraph-art.gif&ehk=gjj7p1osNQxp4wqvFdHG%2b57kuhkNoQ3I39S7vtb3CEA%3d&risl=&pid=ImgRaw')");
             break;
         case "Squall":
             $('.card').css('background-image', "url('https://www.bing.com/th/id/OGC.645b3b99407cc0186bb304a2ce520c79?pid=1.7&rurl=https%3a%2f%2fgifimage.net%2fwp-content%2fuploads%2f2017%2f10%2fhuracanes-gif-1.gif&ehk=IC9MG%2f2Q3VjEu5MJmPJmdBfNDdXovVR1bGzib1VNMM8%3d')");
