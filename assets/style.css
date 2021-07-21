@@ -34,7 +34,7 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     height: auto;
 }
 
-* .card {
+.card {
     color: white;
     background-size: cover;
 }
@@ -69,6 +69,17 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     border-radius: 3px;
     text-align: center;
     margin: 0px
+}
+
+.btn, .btn-large, .btn-small {
+    height: 44.5px;
+    background-color: lightgray;
+    font-size: 30px;
+    color: tomato;
+}
+
+.btn, .btn-large, .btn-small, .btn-flat {
+    padding: 0 10px;
 }
 
 .card-head {
@@ -108,8 +119,8 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 
 .avatar {
     vertical-align: middle;
-    width: 100px;
-    height: 100px;
+    width: 3rem;
+    height: auto;
     border-radius: 50%;
 }
 
@@ -117,6 +128,7 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     background: none;
     text-align: center;
     color: black;
+    /* padding: 0px 10px; */
 }
 
 ul#horizontal-list {
@@ -129,9 +141,20 @@ ul#horizontal-list li {
     text-align: center;
 }
 
+.footer-copyright {
+    padding: 0px 10px;
+}
+
 .footer-copyright-container {
     color: rgb(71, 70, 70);
     text-align: left;
+    font-size: 10px;
+    padding: 0px 10px;
+}
+
+#logo_footer {
+    height: 2rem;
+    width: auto;
 }
 
 /* Adding CSS/attempting to add CSS to the golfCourse attributes */
@@ -205,9 +228,21 @@ img.course-photo {
     grid-area: d;
 }
 
+.sidenav li>a {
+    color: darkolivegreen;
+    /* display: block; */
+    font-size: 30px;
+    /* font-weight: 500; */
+    height: 30px;
+    line-height: 60px;
+    padding: 10px;
+    /* text-align: left; */
+    /* justify-content: center; */
+}
+
 @media only screen and (min-width: 993px) {
 
-        .row .col.offset-l2 {
+    .row .col.offset-l2 {
         margin: 0;
     }
 
