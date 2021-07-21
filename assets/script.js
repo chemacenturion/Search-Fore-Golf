@@ -1,6 +1,7 @@
 var cityName = $('#search').val();
 var myAPIKey = "&units=imperial&appid=b189ed07703c87b6aee0ad39e180260d"
 var date = new Date();
+var savedArr = JSON.parse(localStorage.getItem("savedcourses")) || [];
 
 
 function handleSearchClick(event) {
@@ -103,16 +104,16 @@ function dailyWeather(cityName) {
         url: callApi,
         method: 'GET'
     })
-    .then(function (response) {
-        
-        console.log(response);
-        console.log(response.name);
-        console.log(response.weather[0].icon);
-        console.log(response.main.humidity);
-        console.log(response.wind.speed);
+        .then(function (response) {
 
-        currentConditions(response);
-    })
+            console.log(response);
+            console.log(response.name);
+            console.log(response.weather[0].icon);
+            console.log(response.main.humidity);
+            console.log(response.wind.speed);
+
+            currentConditions(response);
+        })
 }
 
 function getGolf(cityName) {
@@ -144,32 +145,65 @@ function getGolf(cityName) {
             for (let i = 0; i < result.businesses.length; i++) {
                 var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
                 var lineBody = $("<div>").addClass("line-body")
-                var cityCourses = $("<div>").addClass("city-courses").text(result.businesses[i].name)
+                var cityCourses = $("<a>").addClass("city-courses").text(result.businesses[i].name).attr("href", result.businesses[i].url)
                 var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
-                var saveBtn = $("<button>").addClass("save-btn").text("Save? ♡")
+                var saveBtn = $("<button>").addClass("save-btn").val(result.businesses[i].id).text("Save? ♡")
+                //make a resultsbtn, each result  variabe that attatches to the '#results' with an .on("click", that goes to the corresponding url in the API)
+                
+
+                saveBtn.on("click", saveStorage);
+
                 $("#results").append(line.append(lineBody.append(cityCourses, courseAddress)).append(saveBtn))
 
             }
-            //eventlistener for saved courses from user selection 
+            
         })
         .catch((error) => console.log("error", error));
 }
 
-function userSavedClick(event) {
-
-
+function saveStorage() {
+    console.log(this.value)
+    if (savedArr.indexOf(this.value) === -1) {
+        savedArr.push(this.value)
+    }
+    console.log(savedArr)
+    localStorage.setItem("savedcourses", JSON.stringify(savedArr))
 }
 
-function saveStorage(saveCourse) {
-    var savedArr = [];
-    if (!localStorage.getItem(saveCourse)) {
-        console.log("none");
-        savedArr.push(saveCourse);
-        localStorage.setItem(saveCourse, JSON.stringify(savedArr))
+$("#favorite_button").on("click", function () {
+    for (var i = 0; i < savedArr.length; i++) {
+        console.log(savedArr[i])
+        var myHeaders = new Headers();
+        myHeaders.append(
+            "Authorization",
+            "Bearer MvOlms7t9vwYoodOjpjZqUY_8EGGlNXYii09N2dp2qiJ3y1ozqzZpinFpsWkHEvi9kWN34hOW-C0scwxVmBcJx9DZZQ94j5DbpLXKtCs32mGHyss3DAmlPkiw8_pYHYx"
+        );
+        myHeaders.append("origin", "https://app.cors.bridged.cc");
+        var requestOptions = {
+            method: "GET",
+            headers: myHeaders,
+            redirect: "follow",
+        };
+        fetch(
+            "https://cors.bridged.cc/https://api.yelp.com/v3/businesses/" + savedArr[i],
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then(function (result) {
+
+                var resultCard = $("<div>").addClass("result-card line m6").attr("style", "border: 1px solid black").text(result.name)
+                $("#saved-container").append(resultCard)
+                console.log(result)
+            })
 
     }
+    //closeOnClick	Boolean	true	If true, close dropdown on item click
+    
+        //closeOnClick("#saved-container");
+    
+})
 
-}
+
 
 $(document).ready(function () {
     $('.sidenav').sidenav();
