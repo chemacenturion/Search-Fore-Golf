@@ -86,9 +86,16 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     width: 200px;
 }
 
-.about_section,
+.about_section {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    align-content: center;
+}
+
 .contact_section {
     text-align: center;
+    align-content: center;
 }
 
 .avatar {
@@ -121,28 +128,39 @@ ul#horizontal-list li {
 
 /* Adding CSS/attempting to add CSS to the golfCourse attributes */
 
-.city-title{
+.city-title {
     font-size: xx-large;
     text-align: center;
     color: darkgreen;
 }
 
-.city-courses{
+.city-courses {
     font-size: medium;
     text-align: center;
     color: rgb(58, 126, 58);
 }
 
-.course-address{
+.course-address {
     font-size: small;
     text-align: center;
     color: darkolivegreen;
+}
+
+.carousel {
+    
 }
 
 @media only screen and (min-width: 993px) {
 
         .row .col.offset-l2 {
         margin: 0;
+    }
+
+    .about_section {
+        max-width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        align-content: center;
     }
 }
 
