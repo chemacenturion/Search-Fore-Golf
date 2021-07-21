@@ -10,6 +10,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.row {
+    padding: 15px;
+}
+
 .nav-wrapper {
     background: linear-gradient(0.25turn, #fffffff5, darkolivegreen);
 }
@@ -71,6 +76,9 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     
 }
 
+.card {
+    margin: 0;
+}
 .card-body {
     font-size: x-large;
     font-weight: bolder;
@@ -131,23 +139,70 @@ ul#horizontal-list li {
 .city-title {
     font-size: xx-large;
     text-align: center;
-    color: darkgreen;
+    color: white;
+    background-color: darkolivegreen;
 }
 
 .city-courses {
-    font-size: medium;
-    text-align: center;
-    color: rgb(58, 126, 58);
+    font-size: large;
+    font-weight: bolder;
+    text-align: left;
+    color: darkolivegreen;
+    grid-area: b;
 }
 
 .course-address {
     font-size: small;
-    text-align: center;
+    text-align: left;
     color: darkolivegreen;
+    grid-area: c;
 }
 
-.carousel {
-    
+#saved-container{
+    background-color: transparent;
+    z-index: 1;
+    overflow: scroll;
+    height: 200px;
+}
+
+.line-body {
+    text-align: center;
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+    "a b b b"
+    "a c c c"
+    "a d d d";
+}
+
+.line.m6 {
+    background-color: white;
+    padding: 15px;
+}
+
+.col.s12.m6.l6 {
+    padding: 20px;
+}
+
+button.save-btn {
+    font-size: 22.5px;
+    color: white;
+    background-color: lightgray;
+    border: grey;
+    -webkit-text-stroke: 1px black;
+}
+
+img.course-photo {
+    height: 100px;
+    width: 100px;
+    grid-area: a;
+}
+
+.course-phone {
+    font-size: small;
+    text-align: left;
+    color: darkolivegreen;
+    grid-area: d;
 }
 
 @media only screen and (min-width: 993px) {
@@ -180,11 +235,4 @@ ul#horizontal-list li {
     #logo_two {
         display:none;
     }
-}
-
-#saved-container{
-    background-color: transparent;
-    z-index: 1;
-    overflow: scroll;
-    height: 200px;
 }

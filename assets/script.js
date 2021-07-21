@@ -145,15 +145,17 @@ function getGolf(cityName) {
             for (let i = 0; i < result.businesses.length; i++) {
                 var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
                 var lineBody = $("<div>").addClass("line-body")
-                var cityCourses = $("<a>").addClass("city-courses").text(result.businesses[i].name).attr("href", result.businesses[i].url)
-                var courseAddress = $("<div>").addClass("course-address").text("Address: " + result.businesses[i].location.display_address)
-                var saveBtn = $("<button>").addClass("save-btn").val(result.businesses[i].id).text("Save? ♡")
+                var coursePhoto = $("<img>").addClass("course-photo").attr("src", result.businesses[i].image_url)
+                var cityCourses = $("<a>").addClass("city-courses").text(result.businesses[i].name).attr("href", result.businesses[i].url).attr("target","_blank")
+                var courseAddress = $("<div>").addClass("course-address").text(result.businesses[i].location.display_address)
+                var coursePhone = $("<div>").addClass("course-phone").text(result.businesses[i].phone)
+                var saveBtn = $("<button>").addClass("save-btn").val(result.businesses[i].id).text("Favorite ♥")
                 //make a resultsbtn, each result  variabe that attatches to the '#results' with an .on("click", that goes to the corresponding url in the API)
 
 
                 saveBtn.on("click", saveStorage);
 
-                $("#results").append(line.append(lineBody.append(cityCourses, courseAddress)).append(saveBtn))
+                $("#results").append(line.append(lineBody.append(coursePhoto, cityCourses, courseAddress, coursePhone)).append(saveBtn))
 
             }
 
