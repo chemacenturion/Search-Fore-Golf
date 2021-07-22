@@ -240,6 +240,12 @@ img.course-photo {
     /* justify-content: center; */
 }
 
+.save-btn:hover{
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+    transition: transform 150ms;
+    transform: scale(1.1);
+}
 @media only screen and (min-width: 993px) {
 
     .row .col.offset-l2 {
@@ -270,11 +276,4 @@ img.course-photo {
     #logo_two {
         display:none;
     }
-}
-
-.save-btn:hover{
-    cursor: pointer;
-    box-shadow: 0 0.5rem 1.4rem 0 rgba(8, 114, 244, 0.6);
-    transition: transform 150ms;
-    transform: scale(1.1);
 }

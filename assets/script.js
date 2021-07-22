@@ -1,21 +1,25 @@
+// Global variables.
 var cityName = $('#search').val();
 var myAPIKey = "&units=imperial&appid=b189ed07703c87b6aee0ad39e180260d"
 var date = new Date();
 var savedArr = JSON.parse(localStorage.getItem("savedcourses")) || [];
 
-
+// Function for handling the search click
 function handleSearchClick(event) {
     event.preventDefault();
     cityName = $('#search').val();
 
+    // This clears the search bar after the user enters their search.
     $('#search').val('');
+
+    // Calling functions for to get the weather and golf courses.
     dailyWeather(cityName);
     getGolf(cityName);
     console.log(cityName);
 
 }
 
-
+// This function adds the feature of firing off the search using the enter key.
 $('#search').keypress(function (event) {
     console.log('keypress');
     if (event.keyCode === 13) {
@@ -24,22 +28,29 @@ $('#search').keypress(function (event) {
     }
 });
 
-
+// Event listener for the search button.
 $('#searchBtn').on('click', handleSearchClick);
 
+// Function to get the current weather conditions.
 function currentConditions(response) {
     var temp = (response.main.temp);
     var weatherBackground = (response.weather[0].main);
     temp = Math.floor(temp);
-
+    var time = new Date();
+    var utcTime = time.getTime();
+    var offset = time.getTimezoneOffset();
+    console.log(offset);
+    console.log(response.timezone);
+    var localTime = new Date(utcTime + (response.timezone + (offset * 60)) * 1000);
     // Empties the search bar
     $('#currentCity').empty();
 
-
+    // Creates the variables for the card that will contain the weather.
     var card = $('<div>').addClass('card');
     var cardContent = $('<div>').addClass('card-content');
     var city = $('<h4>').addClass('card-head').text(response.name);
     var cityDate = $('<h4>').addClass('card-head').text(date.toDateString('en-US'));
+    var cityTime = $('<h4>').addClass('card-head').text(localTime.toLocaleTimeString(('en-US')));
     var conditions = $('<p>').addClass('card-body current-description').text('Current Condition: ' + response.weather[0].description);
     var temperature = $('<p>').addClass('card-body current-temp').text('Temperature: ' + temp + '℉');
     var humidity = $('<p>').addClass('card-body current-humidity').text('Humidity: ' + response.main.humidity + '%');
@@ -47,13 +58,13 @@ function currentConditions(response) {
     var weatherImage = $('<img>').attr('src', 'https://openweathermap.org/img/wn/' + response.weather[0].icon + '@4x.png');
 
     // Appending the data to the page.
-    city.append(cityDate, weatherImage);
+    city.append(cityDate, cityTime, weatherImage);
     cardContent.append(city, conditions, temperature, humidity, windMph,);
     card.append(cardContent);
     $('#currentCity').append(card);
 
     // weatherBackground = 'Haze';
-
+    // Switch statement for the dynamic weather backgrounds.
     switch (weatherBackground) {
         case "Snow":
             $('.card').css('background-image', "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')");
@@ -97,6 +108,7 @@ function currentConditions(response) {
     }
 }
 
+// Function to call the Openweathermap API
 function dailyWeather(cityName) {
     var callApi = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + myAPIKey;
 
@@ -112,10 +124,12 @@ function dailyWeather(cityName) {
             console.log(response.main.humidity);
             console.log(response.wind.speed);
 
+            // Calling the currentConditions function passing response as a parameter.
             currentConditions(response);
         })
 }
 
+// Function to call the Yelp APi
 function getGolf(cityName) {
     //console.log(cityName)
     $('#results').empty();
@@ -137,11 +151,16 @@ function getGolf(cityName) {
         .then((response) => response.json())
         .then(function (result) {
 
+            // Variables for the boxes that will hold the results
             var cityBox = $("<div>").addClass("city-box m6").attr("style", "border: 1px solid black")
             var cityBody = $("<div>").addClass("city-body")
             var cityTitle = $("<div>").addClass("city-title").text("Golf Courses In: " + cityName)
+             
+            // Appends the responses for the Yelp API
             $("#results").append(cityBox.append(cityBody.append(cityTitle)))
             console.log(result)
+
+            // A for loop that takes the search results and takes the response and puts them into variables.
             for (let i = 0; i < result.businesses.length; i++) {
                 var line = $("<div>").addClass("line m6").attr("style", "border: 1px solid black")
                 var lineBody = $("<div>").addClass("line-body")
@@ -155,6 +174,7 @@ function getGolf(cityName) {
 
                 saveBtn.on("click", saveStorage);
 
+                // Appending the results to the page and the save button for each course.
                 $("#results").append(line.append(lineBody.append(coursePhoto, cityCourses, courseAddress, coursePhone)).append(saveBtn))
 
             }
