@@ -231,6 +231,7 @@ img.course-photo {
 
 .save-btn:hover{
     cursor: pointer;
+
     box-shadow: 0 0.5rem 1.4rem 0 darkolivegreen;
     transition: transform 150ms;
     transform: scale(1.1);
@@ -265,5 +266,5 @@ img.course-photo {
 
     #logo_two {
         display:none;
-    }
+  }
 }
