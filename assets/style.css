@@ -71,17 +71,6 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     margin: 0px
 }
 
-.btn, .btn-large, .btn-small {
-    height: 44.5px;
-    background-color: lightgray;
-    font-size: 30px;
-    color: tomato;
-}
-
-.btn, .btn-large, .btn-small, .btn-flat {
-    padding: 0 10px;
-}
-
 .card-head {
     font-size: 50px;
     
@@ -184,7 +173,7 @@ ul#horizontal-list li {
 #saved-container{
     background-color: transparent;
     z-index: 1;
-    overflow: scroll;
+    overflow-y: auto;
     height: 200px;
 }
 
@@ -240,6 +229,13 @@ img.course-photo {
     /* justify-content: center; */
 }
 
+.save-btn:hover{
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1.4rem 0 darkolivegreen;
+    transition: transform 150ms;
+    transform: scale(1.1);
+}
+
 @media only screen and (min-width: 993px) {
 
     .row .col.offset-l2 {
@@ -270,11 +266,4 @@ img.course-photo {
     #logo_two {
         display:none;
     }
-}
-
-.save-btn:hover{
-    cursor: pointer;
-    box-shadow: 0 0.5rem 1.4rem 0 rgba(8, 114, 244, 0.6);
-    transition: transform 150ms;
-    transform: scale(1.1);
 }
