@@ -4,6 +4,14 @@
     padding: 0;
 }
 
+/* The most difficult challenge for myself this project was utilizing a CSS framework.
+Since the beginning of class I've tried to learn how to build my website from scratch as opposed to Bootstrap
+and this was my first homework with combating Materialize's preset CSS properties.
+
+However it certainly made me more familiar with the element inspector and how to pinpoint properties to override.*/
+
+/* Utilized the following image as a background. Obtained two public use images of parchment paper and a golf course map
+and overlayed them together. */
 body {
     background-image: url("./Images/golfbackground.jpg");
     background-position: center;
@@ -11,38 +19,53 @@ body {
     background-size: cover;
 }
 
+/* We utilized Materialize grid for our project */
 .row {
     padding: 15px;
 }
 
+/* Navbar  & side navbar properties */
 .nav-wrapper {
     background: linear-gradient(0.25turn, #fffffff5, darkolivegreen);
 }
 
-nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
-    height: 80px;
-    line-height: 64px;
+    nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
+        height: 80px;
+        line-height: 64px;
+    }
+
+    #logo_two {
+        width: 70px;
+        height: auto;
+    }
+
+    #logo_two_sn {
+        width: 60px;
+        height: auto;
+    }
+
+    .sidenav {
+        background: linear-gradient(0.25turn, #fffffff5, rgb(165, 170, 157));
+        padding: 10px;
+    }
+    
+    .sidenav li>a {
+        color: darkolivegreen;
+        /* display: block; */
+        font-size: 30px;
+        /* font-weight: 500; */
+        height: 30px;
+        line-height: 60px;
+        padding: 10px;
+        /* text-align: left; */
+        /* justify-content: center; */
+    }
+
+.col.s12.m6.l6 {
+    padding: 20px;
 }
 
-#logo_two {
-    width: 70px;
-    height: auto;
-}
-
-#logo_two_sn {
-    width: 60px;
-    height: auto;
-}
-
-.card {
-    color: white;
-    background-size: cover;
-}
-
-.sidenav {
-    background: linear-gradient(0.25turn, #fffffff5, rgb(165, 170, 157));
-    padding: 10px;
-}
+/* Hero Image and elements within container properties */
 
 .hero_image {
     height: 50rem;
@@ -53,129 +76,51 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     position: relative;
 }
 
-.hero_text {
-    display: inline-flex;
-    text-align: center;
-    position: absolute;
-    color:black;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-}
+    .hero_text {
+        display: inline-flex;
+        text-align: center;
+        position: absolute;
+        color:black;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    }
 
-#search {
-    background-color: white;
-    border: black solid 1px;
-    border-radius: 3px;
-    text-align: center;
-    margin: 0px
-}
+    #search {
+        background-color: white;
+        border: black solid 1px;
+        border-radius: 3px;
+        text-align: center;
+        margin: 0px
+    }
 
+    #saved-container{
+        background-color: transparent;
+        z-index: 1;
+        overflow-y: auto;
+        height: 200px;
+    }
+
+/* Weather section related properties */
 .card-head {
     font-size: 50px;
     
 }
 
-.card {
-    margin: 0;
-}
-.card-body {
-    font-size: x-large;
-    font-weight: bolder;
-}
+    .card {
+        margin: 0;
+    }
+    .card-body {
+        font-size: x-large;
+        font-weight: bolder;
+    }
 
-#favorite_button {
-    text-align: center;
-    position: absolute;
-    color:black;
-    top:57%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    width: 200px;
-}
+    .card {
+        color: white;
+        background-size: cover;
+    }
 
-.about_section {
-    max-width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    align-content: center;
-}
-
-.contact_section {
-    text-align: center;
-    align-content: center;
-}
-
-.avatar {
-    vertical-align: middle;
-    width: 3rem;
-    height: auto;
-    border-radius: 50%;
-}
-
-.page-footer {
-    background: none;
-    text-align: center;
-    color: black;
-    /* padding: 0px 10px; */
-}
-
-ul#horizontal-list {
-	list-style: none;
-	padding-top: 20px;
-}
-
-ul#horizontal-list li {
-	display: inline-block;
-    text-align: center;
-}
-
-.footer-copyright {
-    padding: 0px 10px;
-}
-
-.footer-copyright-container {
-    color: rgb(71, 70, 70);
-    text-align: left;
-    font-size: 10px;
-    padding: 0px 10px;
-}
-
-#logo_footer {
-    height: 2rem;
-    width: auto;
-}
-
-/* Adding CSS/attempting to add CSS to the golfCourse attributes */
-
-.city-title {
-    font-size: xx-large;
-    text-align: center;
-    color: white;
-    background-color: darkolivegreen;
-}
-
-.city-courses {
-    font-size: large;
-    font-weight: bolder;
-    text-align: left;
-    color: darkolivegreen;
-    grid-area: b;
-}
-
-.course-address {
-    font-size: small;
-    text-align: left;
-    color: darkolivegreen;
-    grid-area: c;
-}
-
-#saved-container{
-    background-color: transparent;
-    z-index: 1;
-    overflow-y: auto;
-    height: 200px;
-}
+ /* All properites pertaining to Course Results */
 
 .line-body {
     text-align: center;
@@ -187,55 +132,128 @@ ul#horizontal-list li {
     "a d d d";
 }
 
-.line.m6 {
-    background-color: white;
-    padding: 15px;
+    #favorite_button {
+        text-align: center;
+        position: absolute;
+        color:black;
+        top:57%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width: 200px;
+    }
+
+    .city-title {
+        font-size: xx-large;
+        text-align: center;
+        color: white;
+        background-color: darkolivegreen;
+    }
+
+    .city-courses {
+        font-size: large;
+        font-weight: bolder;
+        text-align: left;
+        color: darkolivegreen;
+        grid-area: b;
+    }
+
+    .course-address {
+        font-size: small;
+        text-align: left;
+        color: darkolivegreen;
+        grid-area: c;
+    }
+
+    .line.m6 {
+        background-color: white;
+        padding: 15px;
+    }
+
+    button.save-btn {
+        font-size: 22.5px;
+        color: white;
+        background-color: lightgray;
+        border: grey;
+        -webkit-text-stroke: 1px black;
+    }
+
+    img.course-photo {
+        height: 100px;
+        width: 100px;
+        grid-area: a;
+    }
+
+    .course-phone {
+        font-size: small;
+        text-align: left;
+        color: darkolivegreen;
+        grid-area: d;
+    }
+
+    .save-btn:hover{
+        cursor: pointer;
+
+        box-shadow: 0 0.5rem 1.4rem 0 darkolivegreen;
+        transition: transform 150ms;
+        transform: scale(1.1);
+    }
+
+/* About Section properties */
+
+.about_section {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    align-content: center;
 }
 
-.col.s12.m6.l6 {
-    padding: 20px;
+/* Footer/Contact section properties */
+
+.page-footer {
+    background: none;
+    text-align: center;
+    color: black;
 }
 
-button.save-btn {
-    font-size: 22.5px;
-    color: white;
-    background-color: lightgray;
-    border: grey;
-    -webkit-text-stroke: 1px black;
-}
+    .contact_section {
+        text-align: center;
+        align-content: center;
+    }
 
-img.course-photo {
-    height: 100px;
-    width: 100px;
-    grid-area: a;
-}
+    .avatar {
+        vertical-align: middle;
+        width: 3rem;
+        height: auto;
+        border-radius: 50%;
+    }
 
-.course-phone {
-    font-size: small;
-    text-align: left;
-    color: darkolivegreen;
-    grid-area: d;
-}
+    ul#horizontal-list {
+        list-style: none;
+        padding-top: 20px;
+    }
 
-.sidenav li>a {
-    color: darkolivegreen;
-    /* display: block; */
-    font-size: 30px;
-    /* font-weight: 500; */
-    height: 30px;
-    line-height: 60px;
-    padding: 10px;
-    /* text-align: left; */
-    /* justify-content: center; */
-}
+    ul#horizontal-list li {
+        display: inline-block;
+        text-align: center;
+    }
 
-.save-btn:hover{
-    cursor: pointer;
+    .footer-copyright {
+        padding: 0px 10px;
+    }
 
-    box-shadow: 0 0.5rem 1.4rem 0 darkolivegreen;
-    transition: transform 150ms;
-    transform: scale(1.1);
-}
+    .footer-copyright-container {
+        color: rgb(71, 70, 70);
+        text-align: left;
+        font-size: 10px;
+        padding: 0px 10px;
+    }
+
+    #logo_footer {
+        height: 2rem;
+        width: auto;
+    }
+
+/* Media queries properties to finish */
 
 @media only screen and (min-width: 993px) {
 
