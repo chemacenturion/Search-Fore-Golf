@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- The metadata -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of project -->
     <title>Search Fore Golf</title>
+    <!-- Linking the Materialize framework and our CSS. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel=stylesheet href="assets/style.css"/>
 </head>
   <body>
       <main>
+        <!-- Navbar  -->
         <nav class="navbar" id="navigate">
           <div class="nav-wrapper">
             <a href="#" class="brand-logo"><img id="logo_two" src="./assets/Images/Logo2.PNG"><img id="logo_one" src="./assets/Images/logo.png"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons"><img id="logo_two_sn" src="./assets/Images/MenuLogo.PNG"></i></a>
               <ul class="right hide-on-med-and-down">
+                <!-- Links to the About and Contact sections. -->
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
           </div>
         </nav>
-        
+        <!-- Creates the sidenav for the About and Contact links on mobile devices. -->
         <aside>
           <ul class="sidenav" id="mobile-demo">
             <li><a href="#about">About</a></li>
@@ -31,14 +36,17 @@
         </aside>
 
         <div class="row">
+          <!-- This div holds the hero image area -->
           <div class="col s12 m12 l12">
             <div class="hero_image" id="hero">
               <div class ="hero_text">
+                <!-- The search bar and button -->
                 <input type="text" class="location_search" id="search" placeholder="Enter City Name">
                 <button type="submit" class="search_button" id="searchBtn"><value>Search 🏌️</value></button>
               </div>
               <div>
                 <div>
+                  <!-- The dropdown menu for the saved courses in local storage. -->
                   <a class='dropdown-trigger btn' href='#' data-target='dropdown1' class="favoritebtn" id="favorite_button">Saved Courses!
                     <div id="saved-container">
 
@@ -48,12 +56,15 @@
               </div>
             </div>
           </div>
+          <!-- This is where the current weather is displayed. -->
           <div class="col s12 m6 l6">
             <div id="currentCity"></div>
           </div>
+          <!-- This is where the users search results for golf courses is displayed. -->
           <div class="col s12 m6 l6">
             <div id="results"></div>
           </div>
+          <!-- This div holds the About section. -->
           <div class="col s12 m12 l12">
             <div class="row">
               <div class="about_section" id="about">
@@ -64,6 +75,7 @@
               </div>
             </div>
           </div>
+          <!-- This is where the carousel containing our pictures is displayed. -->
           <div class="col s12 m12 l12">
             <div class="carousel">
               <a class="carousel-item" href="#one!"><img src="./assets/Images/catgolf1.jpeg"></a>
@@ -76,14 +88,16 @@
           </div>
         </div>
       </main>
-
+      <!-- This is the footer. -->
       <footer class="page-footer">
         <div class="footer-copyright">
           <div class="footer-copyright-container">
+            <!-- Image logo and text -->
             <img id="logo_footer" src="./assets/Images/logo.png">
             <br>
             © 2021 Search FORE Golf
           </div>
+          <!-- This is where our contact logos and links are contained inside the footer. -->
           <div class="foot-container" id="contact">
             <div class="row">
               <div id="contact-avatars">
@@ -97,7 +111,7 @@
           </div> 
         </div>
       </footer>
-      
+      <!-- The link for Jquery and local javascript. -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="assets/script.js"></script>
 
