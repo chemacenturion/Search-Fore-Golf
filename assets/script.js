@@ -183,6 +183,7 @@ function getGolf(cityName) {
         .catch((error) => console.log("error", error));
 }
 
+// This function is for the local storage.
 function saveStorage() {
     console.log(this.value)
     if (savedArr.indexOf(this.value) === -1) {
@@ -192,7 +193,9 @@ function saveStorage() {
     localStorage.setItem("savedcourses", JSON.stringify(savedArr))
 }
 
+// Event listener for the favorite button
 $("#favorite_button").on("click", function () {
+    // A for loop that goes through the savedArr.
     for (var i = 0; i < savedArr.length; i++) {
         console.log(savedArr[i])
         var myHeaders = new Headers();
@@ -212,7 +215,7 @@ $("#favorite_button").on("click", function () {
         )
             .then((response) => response.json())
             .then(function (result) {
-
+                // Creating the result card for local storage and appending the results to the page.
                 var resultCard = $("<div>").addClass("result-card line m6").attr("style", "border: 1px solid black").text(result.name)
                 $("#saved-container").append(resultCard)
                 console.log(result)
@@ -222,14 +225,14 @@ $("#favorite_button").on("click", function () {
 });
 
 //closeOnClick	Boolean	true	If true, close dropdown on item click
-
 //closeOnClick("#saved-container");
 
-
+// Function to make the the sidenav available after the document has loaded.
 $(document).ready(function () {
     $('.sidenav').sidenav();
 });
 
+// Function to make the the carousel available after the document has loaded.
 $(document).ready(function () {
     $('.carousel').carousel();
 });
