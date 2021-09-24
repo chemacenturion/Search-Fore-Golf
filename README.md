@@ -1,5 +1,8 @@
 # Search Fore Golf - Project 1
 
+![search-fore-golf](https://user-images.githubusercontent.com/84750356/134739092-e6fec8ac-a840-4712-9714-1df4d6670d22.jpeg)
+
+
 # Description:
 
 Description of project: This project tasked us with making a web application from scratch and execute a design that solves a real-world problem using multiple server-side API requests.  Our team decided to create a web application that allows the user to search for golf courses and be displayed information for each course. We also wanted to integrate the current weather for the search location and have dyanmic weather displayed in the background.  We worked collaboratively to design this application to implement the features and to solve any merge conflicts and bug fixes.
